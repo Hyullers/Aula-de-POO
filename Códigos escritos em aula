@@ -1,0 +1,45 @@
+package application;
+
+import java.util.Scanner;
+
+import entities.Produto;
+
+public class Programa {
+    public static void main (String[] args){
+        Scanner sc = new Scanner(System.in);
+        Produto A = new Produto ();
+        
+        System.out.print("Nome do Produto: ");
+        A.nome = sc.nextLine();
+        System.out.print("Preco do Produto: ");
+        A.preco = sc.nextDouble();
+        System.out.print("Quantidade: ");
+        A.quantidade = sc.nextInt();
+        
+        System.out.println(A);
+    }
+}
+
+package entities;
+
+public class Produto {
+    
+    public String nome;
+    public double preco;
+    public int quantidade;
+    
+    public double valorTotalEstoque () {
+        return preco*quantidade;
+    }
+    public void addProduto(int quant) {
+        quantidade += quant;
+    }
+    public void romeProduto (int quant) {
+        quantidade -= quant; 
+    }
+    
+    public String toString() {
+        return "O produto "+nome+" de preco "+preco+" possui "+quantidade+" qtd "
+                + " totalizando "+valorTotalEstoque()+" reais";
+    }
+}
