@@ -41,5 +41,25 @@ public class Produto {
     public String toString() {
         return "O produto "+nome+" de preco "+preco+" possui "+quantidade+" qtd "
                 + " totalizando "+valorTotalEstoque()+" reais";
+                int opcao = 1;
+        
+        while (opcao != 0) {
+            
+            System.out.println("Digite 1 - Realizar venda, 2 - Realizar compra ou 0 - Sair do Sistema");
+            opcao = sc.nextInt();
+            
+            if (opcao==1) {
+                System.out.println("Quantidade a vender");
+                int venda = sc.nextInt();
+                A.removeProduto(venda);
+            }
+            else if (opcao==2){
+                System.out.println("Quantidade a comprar");
+                int compra = sc.nextInt();
+                A.addProduto(compra);
+            }
+            
+            System.out.println(A);
+        }
     }
 }
